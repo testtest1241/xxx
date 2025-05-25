@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Phaser from 'phaser';
 import Joystick from './Joystick';
 
-// Oyun sahneleri
+// Oyun sahneler
 import { BootScene } from '@/scenes/BootScene';
 import { MainMenuScene } from '@/scenes/MainMenuScene';
 import { GameScene } from '@/scenes/GameScene';
