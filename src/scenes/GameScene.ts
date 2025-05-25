@@ -172,11 +172,13 @@ export class GameScene extends Phaser.Scene {
     });
 
     // Karakter değiştirme tuşu
-    this.input.keyboard.on('keydown-SPACE', () => {
-      if (this.gamePhase === 'hearts') {
-        this.isBoyActive = !this.isBoyActive;
-      }
-    });
+    if (this.input.keyboard) {
+      this.input.keyboard.on('keydown-SPACE', () => {
+        if (this.gamePhase === 'hearts') {
+          this.isBoyActive = !this.isBoyActive;
+        }
+      });
+    }
 
     // Mobil tuşlar için event listener
     window.addEventListener('phaser-move', (e: any) => {
