@@ -44,7 +44,9 @@ export class GameScene extends Phaser.Scene {
     this.cat.setVisible(false);
     this.cat.setCollideWorldBounds(true);
     this.cat.setScale(0.1);
-    this.cat.body.enable = false;
+    if (this.cat.body) {
+      this.cat.body.enable = false;
+    }
 
     // Diş grubu
     this.teeth = this.physics.add.group({
@@ -319,7 +321,9 @@ export class GameScene extends Phaser.Scene {
       this.showInfo('Kocik de Asrik de eşit sayıda kalp toplamalı!', 10000);
       // Kedi karakterini göster
       this.cat.setVisible(true);
-      this.cat.body.enable = true;
+      if (this.cat.body) {
+        this.cat.body.enable = true;
+      }
       // Kediyle ilgili overlap'ları burada ekle
       this.physics.add.overlap(
         this.girl,
