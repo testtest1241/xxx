@@ -145,7 +145,18 @@ export class GameScene extends Phaser.Scene {
     );
 
     // Klavye kontrolleri
-    this.cursors = this.input.keyboard.createCursorKeys();
+    if (this.input.keyboard) {
+      this.cursors = this.input.keyboard.createCursorKeys();
+    } else {
+      console.warn('Keyboard input is not available');
+      // Varsayılan bir cursor keys objesi oluştur
+      this.cursors = {
+        up: { isDown: false },
+        down: { isDown: false },
+        left: { isDown: false },
+        right: { isDown: false }
+      } as Phaser.Types.Input.Keyboard.CursorKeys;
+    }
 
     // Touch kontrolleri için
     this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
